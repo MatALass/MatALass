@@ -42,7 +42,7 @@ Provide an interactive dashboard to explore and understand key indicators from a
 ---
 
 ### Electric School Bus Analytics Dashboard  
-https://github.com/MatALass/electric-school-bus-dashboard
+https://github.com/MatALass/school-bus-dashboard
 
 **Business objective**  
 Analyze operational and environmental data to support decision-making in school transportation.
