@@ -28,7 +28,7 @@ Strong background in **SQL and Python**, with hands-on experience transforming r
 ## Selected Projects
 
 ### Digital Cultural Consumption Dashboard  
-https://github.com/MatALass/Data-viz-dashboard
+https://github.com/MatALass/dataviz-dashboard
 
 **Business objective**  
 Provide an interactive dashboard to explore and understand key indicators from a real public dataset.
