@@ -40,6 +40,8 @@ Including:
 ### BI Cultural Consumption Dashboard
 Interactive Streamlit dashboard exploring public socio-demographic indicators.
 
+https://github.com/MatALass-EFREI/dataviz-dashboard
+
 **What I did**
 - Designed KPI structure
 - Built interactive visualizations
@@ -50,6 +52,8 @@ Interactive Streamlit dashboard exploring public socio-demographic indicators.
 
 ### School Transport Analytics Dashboard
 Operational analytics project focused on efficiency & environmental KPIs.
+
+https://github.com/MatALass-EFREI/school-bus-dashboard
 
 **What I did**
 - Modeled operational datasets
@@ -90,7 +94,7 @@ Python | SQL | Streamlit | Git | Power BI (learning)
 ## Career Objective
 
 Seeking a Business Intelligence / Data Analyst apprenticeship  
-Starting November — Paris
+Starting September — Paris
 
 ---
 
