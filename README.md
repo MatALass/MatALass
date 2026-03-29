@@ -1,104 +1,124 @@
-# Mathieu Alassoeur — Data Analyst | Business Intelligence
+# Mathieu Alassoeur  
+Data Analyst | BI Engineer | Analytics Engineering
 
-Final-year Engineering Student (EFREI Paris)  
-Currently Data Analyst Intern at International School of Management (Germany)
+Final-year Engineering Student — EFREI Paris  
 
-I specialize in transforming raw, inconsistent datasets into reliable KPIs, dashboards, and structured decision-support systems.
+---
+
+## About
+
+I design and build **reliable data systems** transforming raw, inconsistent data into:
+- structured datasets
+- actionable KPIs
+- decision-ready dashboards
+
+My approach combines:
+- data engineering rigor
+- business-oriented analytics
+- reproducible and scalable workflows
 
 ---
 
 ## Professional Experience — ISM (Germany)
 
-As a Data Analyst Intern, I work on:
+**Data Analyst Intern (Completed)**
 
-- Student data cleaning & normalization (Academy5 system)
-- Data quality validation & consistency checks
-- API integration (Targroup → HubSpot)
-- KPI structuring for academic performance tracking
-- Dashboard automation for decision-making
+Worked on improving the reliability and usability of institutional data systems.
 
-Focus: Improving institutional data reliability and analytical usability.
+### Key Contributions
 
----
+- Designed data cleaning & normalization pipelines (Academy5 student data)
+- Implemented data quality validation frameworks (consistency, duplicates, missing data)
+- Integrated external APIs (Targroup → HubSpot synchronization)
+- Structured academic KPIs for performance monitoring
+- Automated dashboard-ready datasets
 
-## Academic Projects (EFREI)
+### Impact
 
-All academic repositories are organized here:
-
-https://github.com/MatALass-EFREI
-
-Including:
-- Business Intelligence dashboards
-- Public dataset analysis
-- Operational KPI modeling
-- Data visualization & reporting logic
+- Improved data consistency across multiple systems
+- Reduced manual data cleaning workload
+- Enabled more reliable academic reporting
 
 ---
 
-## Selected Public Projects
+## Projects
 
 ### BI Cultural Consumption Dashboard
-Interactive Streamlit dashboard exploring public socio-demographic indicators.
 
-https://github.com/MatALass-EFREI/dataviz-dashboard
+Interactive Streamlit dashboard analyzing socio-demographic indicators.
 
-**What I did**
-- Designed KPI structure
-- Built interactive visualizations
-- Applied data storytelling principles
-- Focused on business-oriented interpretation
+https://github.com/MatALass/dataviz-dashboard
+
+**Highlights**
+- KPI-driven analysis design
+- Interactive visual exploration
+- Business-oriented insights
+- Clean data transformation pipeline
 
 ---
 
 ### School Transport Analytics Dashboard
-Operational analytics project focused on efficiency & environmental KPIs.
 
-https://github.com/MatALass-EFREI/school-bus-dashboard
+Operational analytics project focused on efficiency and environmental performance.
 
-**What I did**
-- Modeled operational datasets
-- Defined performance indicators
-- Built analytical reporting logic
-- Generated actionable insights
+https://github.com/MatALass/school-bus-dashboard
+
+**Highlights**
+- Operational dataset modeling
+- KPI definition (efficiency, environmental impact)
+- Analytical reporting logic
+- Decision-support insights
 
 ---
 
-## Core Skills
+## Technical Skills
 
-**SQL**
-- Advanced queries
-- Aggregations & joins
-- Data validation logic
-- KPI computation
+### Data & Analytics
+- SQL (advanced joins, aggregations, validation logic)
+- KPI modeling & metric design
+- Data quality frameworks
 
-**Python**
-- Pandas / NumPy
-- Data cleaning
+### Python
+- Pandas, NumPy
+- Data cleaning pipelines
 - Exploratory analysis
-- Dashboard preparation
+- Data preparation for dashboards
 
-**Business Intelligence**
-- KPI definition
-- Metric consistency
-- Reporting logic
-- Insight communication
+### BI & Visualization
+- Streamlit
+- Power BI (learning)
+
+### Engineering Practices
+- Modular project structure (src-based)
+- Reproducible pipelines
+- Git & version control
 
 ---
 
 ## Tools
 
-Python | SQL | Streamlit | Git | Power BI (learning)
+Python | SQL | Streamlit | Git | Power BI
+
+---
+
+## Portfolio
+
+GitHub  
+https://github.com/MatALass
 
 ---
 
 ## Career Objective
 
-Seeking a Business Intelligence / Data Analyst apprenticeship  
+Seeking a **Data Analyst / BI / Analytics Engineering apprenticeship**  
 Starting September — Paris
 
 ---
 
 ## Contact
 
-- LinkedIn: https://www.linkedin.com/in/mathieu-alassoeur-251544253/  
-- GitHub: https://github.com/MatALass
+LinkedIn  
+https://www.linkedin.com/in/mathieu-alassoeur/
+
+GitHub  
+https://github.com/MatALass
