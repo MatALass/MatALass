@@ -108,13 +108,6 @@ https://github.com/MatALass
 
 ---
 
-## Career Objective
-
-Seeking a **Data Analyst / BI / Analytics Engineering apprenticeship**  
-Starting September — Paris
-
----
-
 ## Contact
 
 LinkedIn  
