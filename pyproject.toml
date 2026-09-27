@@ -1,0 +1,14 @@
+[project]
+name = "profile-assets"
+version = "1.0.0"
+description = "Self-hosted SVG assets for the MatALass GitHub profile README"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

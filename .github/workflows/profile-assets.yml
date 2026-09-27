@@ -1,9 +1,7 @@
 name: Build profile assets
 
-# Builds every image the profile README points to (project cards, language
-# breakdown, activity KPIs, contribution snake) and publishes them to the
-# "output" branch. Everything lives in ONE workflow on purpose: the publish
-# step replaces the whole branch, so two workflows would erase each other.
+# Tests the generator, builds every image the README points to (header, project
+# cards, languages) and publishes them to the "output" branch.
 
 on:
   schedule:
@@ -12,7 +10,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "scripts/**"
+      - "src/**"
+      - "tests/**"
+      - "assets/**"
+      - "profile.config.json"
+      - "pyproject.toml"
       - ".github/workflows/profile-assets.yml"
 
 permissions:
@@ -35,20 +37,18 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate project cards, languages and KPIs
-        env:
-          # Optional: add a PROFILE_TOKEN secret (classic PAT, read:user scope)
-          # to also count private contributions. Falls back to the built-in token.
-          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
-        run: python scripts/generate_cards.py --config scripts/cards.config.json --out dist
+      - name: Run tests
+        run: |
+          pip install pytest
+          pytest
 
-      - name: Generate contribution snake
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake.svg?palette=github-light&color_snake=#0369a1&color_dots=#ebedf0,#bae6fd,#38bdf8,#0284c7,#075985
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=#38bdf8&color_dots=#161b22,#0c4a6e,#0369a1,#0ea5e9,#7dd3fc
+      - name: Generate assets
+        env:
+          # Optional: a PROFILE_TOKEN secret (classic PAT, read:user scope)
+          # also counts private contributions. Falls back to the built-in token.
+          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+          PYTHONPATH: src
+        run: python -m profile_assets --config profile.config.json --out dist
 
       - name: Publish to the "output" branch
         uses: crazy-max/ghaction-github-pages@v4
