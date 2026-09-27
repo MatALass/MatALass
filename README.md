@@ -20,7 +20,7 @@
 <h2>👋 Hey, I'm Mathieu</h2>
 
 <p>
-  4th-year engineering student at <b>EFREI Paris</b> 🇫🇷 (Data Analytics & BI major), currently in a <b>work-study as a Data Analyst</b> on the PMO team at <b>Alpine Racing</b> 🏎️.
+  5th-year engineering student at <b>EFREI Paris</b> 🇫🇷 (Data Analytics & BI major), currently in a <b>work-study as a Data Analyst</b> on the PMO team at <b>Alpine Racing</b> 🏎️.
   <br/>
   I like building <b>reliable data systems</b>: pipelines that clean raw, inconsistent data, KPIs that actually mean something, and dashboards people use to make decisions.
 </p>
