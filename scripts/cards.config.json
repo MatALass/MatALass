@@ -1,0 +1,43 @@
+{
+  "user": "MatALass",
+  "max_languages": 8,
+  "exclude_languages": ["HTML", "CSS", "Jupyter Notebook"],
+  "featured": [
+    {
+      "repo": "wc-tracker",
+      "title": "WC Tracker",
+      "description": "Live World Cup 2026 predictor: Elo ratings, calibrated double Poisson, Monte Carlo bracket simulation, judged a posteriori with Brier scores.",
+      "tags": ["Monte Carlo", "Elo", "Streamlit", "pytest + CI"]
+    },
+    {
+      "repo": "vct-data-lab",
+      "title": "VCT Data Lab",
+      "description": "Competitive Valorant analytics platform: VLR data pipelines, role inference, player ranking and playoff odds simulation.",
+      "tags": ["Scraping", "Ranking", "Simulation"]
+    },
+    {
+      "repo": "vct-meta-lens",
+      "title": "VCT Meta Lens",
+      "description": "How the pro Valorant meta evolved over VCT 2025: 15 events, 349 players, 100k+ kills, modeled as a star schema for Power BI.",
+      "tags": ["Star schema", "Parquet", "Power BI"]
+    },
+    {
+      "repo": "github-portfolio-auditor",
+      "title": "GitHub Portfolio Auditor",
+      "description": "Deterministic auditor that scores, ranks and optimizes GitHub repositories, with actionable insights in a Streamlit dashboard.",
+      "tags": ["Scoring", "GitHub API", "Streamlit"]
+    },
+    {
+      "repo": "anssi-vulnerability-intelligence",
+      "title": "ANSSI Vulnerability Intelligence",
+      "description": "Offline-first pipeline for ANSSI bulletins: CVE enrichment, risk prioritization and a decision-support dashboard.",
+      "tags": ["Cybersecurity", "Risk scoring", "Streamlit"]
+    },
+    {
+      "repo": "school-bus-decision-system",
+      "title": "School Bus Decision System",
+      "description": "Prioritizes electric school bus deployment across U.S. districts by combining analytics, scoring and interactive visualization.",
+      "tags": ["Decision support", "Scoring", "Dataviz"]
+    }
+  ]
+}
