@@ -1,5 +1,6 @@
 import json
 import xml.etree.ElementTree as ET
+from dataclasses import replace
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -8,11 +9,13 @@ import pytest
 from profile_assets.cli import demo_data, main
 from profile_assets.config import ConfigError, load_config
 from profile_assets.github import compute_streaks, weekly_totals
-from profile_assets.models import RepoCard
-from profile_assets.render import render_header, render_languages, render_repo_card
+from profile_assets.header import days_until, render_header
+from profile_assets.models import Activity, RepoCard
+from profile_assets.render import render_languages, render_repo_card
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "profile.config.json"
+TODAY = date(2026, 9, 27)
 
 
 def _raw_config() -> dict:
@@ -25,10 +28,12 @@ def _write_config(tmp_path: Path, data: dict) -> Path:
     return path
 
 
+@pytest.fixture(scope="module")
+def config():
+    return load_config(CONFIG)
+
+
 # ------------------------------------------------------------------ metrics
-TODAY = date(2026, 9, 27)
-
-
 def _days(counts):
     """counts[0] is today, counts[1] yesterday, ..."""
     return [(TODAY - timedelta(days=i), c) for i, c in enumerate(counts)]
@@ -48,89 +53,90 @@ def test_streak_zero_when_inactive():
 
 def test_weekly_totals_keeps_last_weeks_oldest_first():
     weeks = [[1] * 7 for _ in range(50)] + [[0, 1, 0, 0, 0, 0, 2], [3]]
-    totals = weekly_totals(weeks, n_weeks=3)
-    assert totals == (7, 3, 3)
+    assert weekly_totals(weeks, n_weeks=3) == (7, 3, 3)
+
+
+def test_days_until():
+    assert days_until(date(2027, 9, 1), TODAY) == 339
+    assert days_until(date(2027, 9, 1), date(2027, 9, 2)) == -1
 
 
 # ------------------------------------------------------------------ config
-def test_repo_config_loads():
-    config = load_config(CONFIG)
+def test_repo_config_loads(config):
     assert config.user == "MatALass"
     assert 1 <= len(config.header.stack) <= 6
+    assert config.header.available_from == date(2027, 9, 1)
     assert config.featured
 
 
-def test_unknown_tier_is_rejected(tmp_path):
+@pytest.mark.parametrize(
+    ("mutate", "message"),
+    [
+        (lambda d: d["header"]["stack"][0].update(tier="legendary"), "tier"),
+        (lambda d: d["theme"].update(bg="purple"), "theme.bg"),
+        (lambda d: d["theme"].update(sun=["#FFFFFF"]), "exactly 3"),
+        (lambda d: d["header"].update(available_from="next year"), "YYYY-MM-DD"),
+        (lambda d: d["header"].update(kill_feed=[{"tool": "a", "target": "b"}] * 4), "at most 3"),
+        (lambda d: d["header"].update(stack=[]), "1 to 6"),
+    ],
+)
+def test_invalid_config_is_rejected(tmp_path, mutate, message):
     data = _raw_config()
-    data["header"]["stack"][0]["tier"] = "legendary"
-    with pytest.raises(ConfigError, match="tier"):
+    mutate(data)
+    with pytest.raises(ConfigError, match=message):
         load_config(_write_config(tmp_path, data))
-
-
-def test_bad_color_is_rejected(tmp_path):
-    data = _raw_config()
-    data["theme"]["primary"] = "blue"
-    with pytest.raises(ConfigError, match="theme.primary"):
-        load_config(_write_config(tmp_path, data))
-
-
-def test_missing_logo_file_is_rejected(tmp_path):
-    data = _raw_config()
-    data["header"]["logo"] = {"path": "assets/nope.svg", "width": 60}
-    with pytest.raises(ConfigError, match="missing file"):
-        load_config(_write_config(tmp_path, data))
-
-
-def test_logo_is_embedded_as_data_uri(tmp_path):
-    (tmp_path / "assets").mkdir()
-    (tmp_path / "assets" / "logo.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg"/>', encoding="utf-8")
-    data = _raw_config()
-    data["header"]["logo"] = {"path": "assets/logo.svg", "width": 60}
-    config = load_config(_write_config(tmp_path, data))
-    _, _, activity = demo_data(config)
-    svg = render_header(config.header, activity, config.theme)
-    assert 'href="data:image/svg+xml;base64,' in svg
-    ET.fromstring(svg)
 
 
 # ------------------------------------------------------------------ rendering
-@pytest.fixture(scope="module")
-def config():
-    return load_config(CONFIG)
-
-
 def test_all_renders_are_valid_xml(config):
     cards, langs, activity = demo_data(config)
-    ET.fromstring(render_header(config.header, activity, config.theme))
+    ET.fromstring(render_header(config.header, activity, config.theme, today=TODAY))
     ET.fromstring(render_languages(langs, config.theme, config.max_languages))
     for i, card in enumerate(cards, start=1):
         ET.fromstring(render_repo_card(card, i, config.theme))
 
 
-def test_special_characters_are_escaped(config):
-    card = RepoCard(repo="r", title="A & B <C>", description='"quotes" & <tags>', tags=("R&D",), language=None, stars=0)
-    svg = render_repo_card(card, 1, config.theme)
-    ET.fromstring(svg)
-    assert "A &amp; B &lt;C&gt;" in svg
+def test_header_shows_countdown_then_available(config):
+    _, _, activity = demo_data(config)
+    before = render_header(config.header, activity, config.theme, today=TODAY)
+    assert ">339<" in before and "DAYS UNTIL AVAILABLE" in before
+    after = render_header(config.header, activity, config.theme, today=date(2027, 9, 1))
+    assert ">NOW<" in after
 
 
-def test_long_description_is_truncated(config):
-    card = RepoCard(repo="r", title="T", description="word " * 200, tags=(), language="Python", stars=0)
-    svg = render_repo_card(card, 1, config.theme)
-    assert svg.count("…") == 1
+def test_header_contains_real_stats_and_feed(config):
+    _, _, activity = demo_data(config)
+    svg = render_header(config.header, activity, config.theme, today=TODAY)
+    assert f"{activity.public_repos} PUBLIC REPOS" in svg
+    for entry in config.header.kill_feed:
+        assert entry.target in svg
 
 
 def test_header_survives_zero_activity(config):
-    _, _, activity = demo_data(config)
-    flat = activity.__class__(weekly=(0,) * 52, contributions=0, current_streak=0, longest_streak=0, public_repos=0)
-    svg = render_header(config.header, flat, config.theme)
+    flat = Activity(weekly=(0,) * 52, contributions=0, current_streak=0, longest_streak=0, public_repos=0)
+    svg = render_header(config.header, flat, config.theme, today=TODAY)
     ET.fromstring(svg)
     assert "PEAK" not in svg
 
 
-def test_cli_demo_writes_all_files(tmp_path):
+def test_header_escapes_user_text(config):
+    header = replace(config.header, name="A & <B>", role='"R&D"')
+    _, _, activity = demo_data(config)
+    svg = render_header(header, activity, config.theme, today=TODAY)
+    ET.fromstring(svg)
+    assert "A &amp; &lt;B&gt;" in svg
+
+
+def test_card_escapes_and_truncates(config):
+    card = RepoCard(repo="r", title="A & B <C>", description="word " * 200, tags=("R&D",), language=None, stars=0)
+    svg = render_repo_card(card, 1, config.theme)
+    ET.fromstring(svg)
+    assert "A &amp; B &lt;C&gt;" in svg
+    assert svg.count("…") == 1
+
+
+def test_cli_demo_writes_all_files(tmp_path, config):
     assert main(["--config", str(CONFIG), "--out", str(tmp_path), "--demo"]) == 0
-    config = load_config(CONFIG)
     assert (tmp_path / "header.svg").is_file()
     assert (tmp_path / "languages.svg").is_file()
     for repo in config.featured:

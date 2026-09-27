@@ -11,7 +11,8 @@ from pathlib import Path
 from .config import ConfigError, load_config
 from .github import GitHub, GitHubError, fetch_activity, fetch_languages, fetch_repo_cards
 from .models import Activity, Config, RepoCard
-from .render import render_header, render_languages, render_repo_card
+from .header import render_header
+from .render import render_languages, render_repo_card
 
 
 def demo_data(config: Config) -> tuple[list[RepoCard], dict[str, int], Activity]:

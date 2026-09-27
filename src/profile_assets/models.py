@@ -1,9 +1,9 @@
-"""Typed data structures shared by the loader, the GitHub client and the renderer."""
+"""Typed data structures shared by the loader, the GitHub client and the renderers."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from pathlib import Path
+from datetime import date
 
 
 @dataclass(frozen=True)
@@ -13,34 +13,34 @@ class Theme:
     grid: str
     text: str
     muted: str
-    primary: str  # Alpine-inspired blue
-    secondary: str  # Alpine-inspired pink
-    tiers: dict[str, str]  # tier name -> color (e.g. core / strong / working)
+    accents: tuple[str, ...]  # vivid colors cycled through cards, chips and HUD elements
+    tiers: dict[str, str]  # tier name -> color (core / strong / working)
     ramp: tuple[str, ...]  # categorical ramp for the language bar
+    sky: tuple[str, str]  # header sky gradient (top, horizon)
+    sun: tuple[str, str, str]  # header sun gradient (top, middle, bottom)
 
 
 @dataclass(frozen=True)
 class StackItem:
-    code: str  # 3-letter timing-tower code, e.g. "PYT"
+    code: str  # short code shown in the loadout slot, e.g. "PYT"
     name: str
     tier: str
 
 
 @dataclass(frozen=True)
-class Logo:
-    path: Path
-    width: int
-    height: int
+class KillFeedEntry:
+    tool: str  # e.g. "Python"
+    target: str  # e.g. "messy_data.csv"
 
 
 @dataclass(frozen=True)
 class Header:
     name: str
-    kicker: str
-    subtitle: str
-    availability: str
+    role: str
+    rank: str
+    available_from: date
     stack: tuple[StackItem, ...]
-    logo: Logo | None
+    kill_feed: tuple[KillFeedEntry, ...]
 
 
 @dataclass(frozen=True)

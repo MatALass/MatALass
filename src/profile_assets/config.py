@@ -8,12 +8,14 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date
 from pathlib import Path
 
-from .models import Config, FeaturedRepo, Header, Logo, StackItem, Theme
+from .models import Config, FeaturedRepo, Header, KillFeedEntry, StackItem, Theme
 
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
-MAX_STACK_ROWS = 6
+MAX_STACK_SLOTS = 6
+MAX_KILL_FEED = 3
 
 
 class ConfigError(ValueError):
@@ -21,7 +23,7 @@ class ConfigError(ValueError):
 
 
 def _require(data: dict, key: str, where: str):
-    if key not in data:
+    if not isinstance(data, dict) or key not in data:
         raise ConfigError(f"missing '{key}' in {where}")
     return data[key]
 
@@ -32,19 +34,30 @@ def _color(value: str, where: str) -> str:
     return value
 
 
+def _colors(values, where: str, exact: int | None = None) -> tuple[str, ...]:
+    if not isinstance(values, list) or not values:
+        raise ConfigError(f"{where} must be a non-empty list of colors")
+    if exact is not None and len(values) != exact:
+        raise ConfigError(f"{where} must contain exactly {exact} colors")
+    return tuple(_color(c, f"{where}[{i}]") for i, c in enumerate(values))
+
+
 def _theme(data: dict) -> Theme:
-    names = ("bg", "panel", "grid", "text", "muted", "primary", "secondary")
-    colors = {n: _color(_require(data, n, "theme"), f"theme.{n}") for n in names}
+    single = {n: _color(_require(data, n, "theme"), f"theme.{n}") for n in ("bg", "panel", "grid", "text", "muted")}
     tiers = {k: _color(v, f"theme.tiers.{k}") for k, v in _require(data, "tiers", "theme").items()}
-    ramp = tuple(_color(c, "theme.ramp[]") for c in _require(data, "ramp", "theme"))
     if not tiers:
         raise ConfigError("theme.tiers must define at least one tier")
-    if not ramp:
-        raise ConfigError("theme.ramp must contain at least one color")
-    return Theme(**colors, tiers=tiers, ramp=ramp)
+    return Theme(
+        **single,
+        accents=_colors(_require(data, "accents", "theme"), "theme.accents"),
+        tiers=tiers,
+        ramp=_colors(_require(data, "ramp", "theme"), "theme.ramp"),
+        sky=_colors(_require(data, "sky", "theme"), "theme.sky", exact=2),  # type: ignore[arg-type]
+        sun=_colors(_require(data, "sun", "theme"), "theme.sun", exact=3),  # type: ignore[arg-type]
+    )
 
 
-def _header(data: dict, theme: Theme, base_dir: Path) -> Header:
+def _header(data: dict, theme: Theme) -> Header:
     stack = []
     for i, item in enumerate(_require(data, "stack", "header")):
         where = f"header.stack[{i}]"
@@ -55,30 +68,29 @@ def _header(data: dict, theme: Theme, base_dir: Path) -> Header:
         if tier not in theme.tiers:
             raise ConfigError(f"{where}.tier {tier!r} is not one of {sorted(theme.tiers)}")
         stack.append(StackItem(code=code, name=str(_require(item, "name", where)), tier=tier))
-    if not 1 <= len(stack) <= MAX_STACK_ROWS:
-        raise ConfigError(f"header.stack must have 1 to {MAX_STACK_ROWS} rows, got {len(stack)}")
+    if not 1 <= len(stack) <= MAX_STACK_SLOTS:
+        raise ConfigError(f"header.stack must have 1 to {MAX_STACK_SLOTS} items, got {len(stack)}")
 
-    logo = None
-    raw_logo = data.get("logo")
-    if raw_logo:
-        path = base_dir / str(_require(raw_logo, "path", "header.logo"))
-        if not path.is_file():
-            raise ConfigError(f"header.logo.path points to a missing file: {path}")
-        if path.suffix.lower() not in {".svg", ".png"}:
-            raise ConfigError("header.logo.path must be a .svg or .png file")
-        logo = Logo(
-            path=path,
-            width=int(_require(raw_logo, "width", "header.logo")),
-            height=int(raw_logo.get("height", 18)),
-        )
+    feed = [
+        KillFeedEntry(tool=str(_require(e, "tool", f"header.kill_feed[{i}]")), target=str(_require(e, "target", f"header.kill_feed[{i}]")))
+        for i, e in enumerate(data.get("kill_feed", []))
+    ]
+    if len(feed) > MAX_KILL_FEED:
+        raise ConfigError(f"header.kill_feed must have at most {MAX_KILL_FEED} entries")
+
+    raw_date = str(_require(data, "available_from", "header"))
+    try:
+        available_from = date.fromisoformat(raw_date)
+    except ValueError as exc:
+        raise ConfigError(f"header.available_from must be YYYY-MM-DD, got {raw_date!r}") from exc
 
     return Header(
         name=str(_require(data, "name", "header")),
-        kicker=str(_require(data, "kicker", "header")),
-        subtitle=str(_require(data, "subtitle", "header")),
-        availability=str(_require(data, "availability", "header")),
+        role=str(_require(data, "role", "header")),
+        rank=str(_require(data, "rank", "header")),
+        available_from=available_from,
         stack=tuple(stack),
-        logo=logo,
+        kill_feed=tuple(feed),
     )
 
 
@@ -89,7 +101,7 @@ def load_config(path: Path) -> Config:
         raise ConfigError(f"cannot read {path}: {exc}") from exc
 
     theme = _theme(_require(data, "theme", "config"))
-    header = _header(_require(data, "header", "config"), theme, path.parent)
+    header = _header(_require(data, "header", "config"), theme)
 
     featured = []
     for i, item in enumerate(_require(data, "featured", "config")):
