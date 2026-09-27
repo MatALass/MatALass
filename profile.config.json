@@ -1,0 +1,78 @@
+{
+  "user": "MatALass",
+
+  "header": {
+    "name": "Mathieu Alassoeur",
+    "role": "Data Analyst · Alpine Racing PMO",
+    "rank": "Final year · EFREI Paris",
+    "available_from": "2027-09-01",
+    "stack": [
+      { "code": "PYT", "name": "Python", "tier": "core" },
+      { "code": "SQL", "name": "SQL", "tier": "core" },
+      { "code": "PBI", "name": "Power BI", "tier": "core" },
+      { "code": "PDS", "name": "Pandas", "tier": "strong" },
+      { "code": "STR", "name": "Streamlit", "tier": "strong" },
+      { "code": "SKL", "name": "scikit-learn", "tier": "working" }
+    ],
+    "kill_feed": [
+      { "tool": "Python", "target": "messy_data.csv" },
+      { "tool": "SQL", "target": "duplicate_rows" },
+      { "tool": "Power BI", "target": "manual_reports" }
+    ]
+  },
+
+  "theme": {
+    "bg": "#0B0620",
+    "panel": "#150C33",
+    "grid": "#2A1A55",
+    "text": "#F5F3FF",
+    "muted": "#A89BD0",
+    "accents": ["#FF2E88", "#FFD60A", "#A855F7", "#FF3B3B", "#22D3EE", "#3B82F6"],
+    "tiers": { "core": "#FF2E88", "strong": "#FFD60A", "working": "#A855F7" },
+    "ramp": ["#FF2E88", "#FFD60A", "#A855F7", "#FF3B3B", "#22D3EE", "#3B82F6", "#FB923C", "#34D399", "#6B5B95"],
+    "sky": ["#12052E", "#3A0F5C"],
+    "sun": ["#FFD60A", "#FF2E88", "#FF3B3B"]
+  },
+
+  "max_languages": 8,
+  "exclude_languages": ["HTML", "CSS", "Jupyter Notebook"],
+
+  "featured": [
+    {
+      "repo": "wc-tracker",
+      "title": "WC Tracker",
+      "description": "Live World Cup 2026 predictor: Elo ratings, calibrated double Poisson, Monte Carlo bracket simulation, judged a posteriori with Brier scores.",
+      "tags": ["Monte Carlo", "Elo", "Streamlit", "CI"]
+    },
+    {
+      "repo": "vct-data-lab",
+      "title": "VCT Data Lab",
+      "description": "Competitive Valorant analytics platform: VLR data pipelines, role inference, player ranking and playoff odds simulation.",
+      "tags": ["Scraping", "Ranking", "Simulation"]
+    },
+    {
+      "repo": "vct-meta-lens",
+      "title": "VCT Meta Lens",
+      "description": "How the pro Valorant meta evolved over VCT 2025: 15 events, 349 players, 100k+ kills, modeled as a star schema for Power BI.",
+      "tags": ["Star schema", "Parquet", "Power BI"]
+    },
+    {
+      "repo": "github-portfolio-auditor",
+      "title": "GitHub Portfolio Auditor",
+      "description": "Deterministic auditor that scores, ranks and optimizes GitHub repositories, with actionable insights in a Streamlit dashboard.",
+      "tags": ["Scoring", "GitHub API", "Streamlit"]
+    },
+    {
+      "repo": "anssi-vulnerability-intelligence",
+      "title": "ANSSI Vulnerability Intelligence",
+      "description": "Offline-first pipeline for ANSSI bulletins: CVE enrichment, risk prioritization and a decision-support dashboard.",
+      "tags": ["Cybersecurity", "Risk scoring", "Streamlit"]
+    },
+    {
+      "repo": "school-bus-decision-system",
+      "title": "School Bus Decision System",
+      "description": "Prioritizes electric school bus deployment across U.S. districts by combining analytics, scoring and interactive visualization.",
+      "tags": ["Decision support", "Scoring", "Dataviz"]
+    }
+  ]
+}
