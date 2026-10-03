@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="VCT Data Lab: Competitive Valorant analytics platform: VLR data pipelines, role inference, player ranking and playoff odds simulation.">
+  <title>VCT Data Lab: Competitive Valorant analytics platform: VLR data pipelines, role inference, player ranking and playoff odds simulation.</title>
+  <rect width="440" height="170" rx="12" fill="#0B0620"/>
+  <rect x="0.5" y="0.5" width="439" height="169" rx="12" fill="#150C33" stroke="#FFD60A" stroke-opacity="0.55"/>
+  <rect x="0" y="16" width="5" height="138" rx="2.5" fill="#FFD60A"/>
+  <rect x="22" y="18" width="34" height="17" rx="3" fill="#FFD60A"/>
+  <text x="39.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="800" letter-spacing="0.5" text-anchor="middle" fill="#0B0620">P02</text>
+  <text x="64.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="0.5" text-anchor="start" fill="#A89BD0">vct-data-lab</text>
+  <text x="422.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="1" text-anchor="end" fill="#A89BD0">PYTHON  ★ 0</text>
+  <text x="22" y="60" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="800" fill="#F5F3FF">VCT Data Lab</text>
+  <text x="22" y="82" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#A89BD0">Competitive Valorant analytics platform: VLR data pipelines,</text>
+  <text x="22" y="99" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#A89BD0">role inference, player ranking and playoff odds simulation.</text>
+  <rect x="22" y="138" width="68" height="20" rx="3" fill="#FFD60A" fill-opacity="0.14" stroke="#FFD60A"/>
+  <text x="56.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#FFD60A">SCRAPING</text>
+  <rect x="96" y="138" width="62" height="20" rx="3" fill="#FFD60A" fill-opacity="0.14" stroke="#FFD60A"/>
+  <text x="127.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#FFD60A">RANKING</text>
+  <rect x="164" y="138" width="82" height="20" rx="3" fill="#FFD60A" fill-opacity="0.14" stroke="#FFD60A"/>
+  <text x="205.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#FFD60A">SIMULATION</text>
+</svg>
