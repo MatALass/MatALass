@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="VCT Meta Lens: How the pro Valorant meta evolved over VCT 2025: 15 events, 349 players, 100k+ kills, modeled as a star schema for Power BI.">
+  <title>VCT Meta Lens: How the pro Valorant meta evolved over VCT 2025: 15 events, 349 players, 100k+ kills, modeled as a star schema for Power BI.</title>
+  <rect width="440" height="170" rx="12" fill="#0B0620"/>
+  <rect x="0.5" y="0.5" width="439" height="169" rx="12" fill="#150C33" stroke="#A855F7" stroke-opacity="0.55"/>
+  <rect x="0" y="16" width="5" height="138" rx="2.5" fill="#A855F7"/>
+  <rect x="22" y="18" width="34" height="17" rx="3" fill="#A855F7"/>
+  <text x="39.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="800" letter-spacing="0.5" text-anchor="middle" fill="#0B0620">P03</text>
+  <text x="64.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="0.5" text-anchor="start" fill="#A89BD0">vct-meta-lens</text>
+  <text x="422.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="1" text-anchor="end" fill="#A89BD0">JUPYTER NOTEBOOK  ★ 0</text>
+  <text x="22" y="60" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="800" fill="#F5F3FF">VCT Meta Lens</text>
+  <text x="22" y="82" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#A89BD0">How the pro Valorant meta evolved over VCT 2025: 15 events,</text>
+  <text x="22" y="99" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#A89BD0">349 players, 100k+ kills, modeled as a star schema for Power</text>
+  <text x="22" y="116" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#A89BD0">BI.</text>
+  <rect x="22" y="138" width="88" height="20" rx="3" fill="#A855F7" fill-opacity="0.14" stroke="#A855F7"/>
+  <text x="66.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#A855F7">STAR SCHEMA</text>
+  <rect x="116" y="138" width="62" height="20" rx="3" fill="#A855F7" fill-opacity="0.14" stroke="#A855F7"/>
+  <text x="147.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#A855F7">PARQUET</text>
+  <rect x="184" y="138" width="68" height="20" rx="3" fill="#A855F7" fill-opacity="0.14" stroke="#A855F7"/>
+  <text x="218.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#A855F7">POWER BI</text>
+</svg>
