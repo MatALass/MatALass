@@ -24,8 +24,8 @@
 <p align="center">
   <a href="mailto:mathieualassoeur@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
   <a href="https://www.linkedin.com/in/mathieu-alassoeur/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-  <a href="https://portfolio-mathieu-alassoeur.vercel.app/docs/mathieu-alassoeur-cv.pdf"><img alt="CV" src="https://img.shields.io/badge/CV-F2C811?style=for-the-badge&logo=readthedocs&logoColor=black" /></a>
-  <a href="https://portfolio-mathieu-alassoeur.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-3FB6A8?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+  <a href="https://mathieu-alassoeur-portfolio.vercel.app/docs/mathieu-alassoeur-cv.pdf"><img alt="CV" src="https://img.shields.io/badge/CV-F2C811?style=for-the-badge&logo=readthedocs&logoColor=black" /></a>
+  <a href="https://mathieu-alassoeur-portfolio.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-3FB6A8?style=for-the-badge&logo=vercel&logoColor=white" /></a>
 </p>
 
 ## À propos
