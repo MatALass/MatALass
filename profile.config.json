@@ -22,16 +22,16 @@
   },
 
   "theme": {
-    "bg": "#0B0620",
-    "panel": "#150C33",
-    "grid": "#2A1A55",
-    "text": "#F5F3FF",
-    "muted": "#A89BD0",
-    "accents": ["#FF2E88", "#FFD60A", "#A855F7", "#FF3B3B", "#22D3EE", "#3B82F6"],
-    "tiers": { "core": "#FF2E88", "strong": "#FFD60A", "working": "#A855F7" },
-    "ramp": ["#FF2E88", "#FFD60A", "#A855F7", "#FF3B3B", "#22D3EE", "#3B82F6", "#FB923C", "#34D399", "#6B5B95"],
-    "sky": ["#12052E", "#3A0F5C"],
-    "sun": ["#FFD60A", "#FF2E88", "#FF3B3B"]
+    "bg": "#0D1117",
+    "panel": "#161B22",
+    "grid": "#30363D",
+    "text": "#E6EDF3",
+    "muted": "#8B949E",
+    "accents": ["#3FB6A8", "#F2C811", "#58A6FF", "#F78166", "#A371F7", "#56D364"],
+    "tiers": { "core": "#F2C811", "strong": "#3FB6A8", "working": "#58A6FF" },
+    "ramp": ["#3FB6A8", "#F2C811", "#58A6FF", "#F78166", "#A371F7", "#56D364", "#E3B341", "#79C0FF", "#8B949E"],
+    "sky": ["#0D1117", "#161B22"],
+    "sun": ["#F2C811", "#E3B341", "#F78166"]
   },
 
   "header_style": "model",
@@ -56,40 +56,40 @@
 
   "featured": [
     {
+      "repo": "library-analytics-data-warehouse",
+      "title": "Library Analytics",
+      "description": "Entrepôt de données en constellation (3 faits, 5 dimensions) et rapport Power BI de 6 pages pour un réseau de bibliothèques, jusqu'à un moteur de réallocation des stocks.",
+      "tags": ["Power BI", "Modèle en étoile", "DAX"]
+    },
+    {
       "repo": "wc-tracker",
       "title": "WC Tracker",
-      "description": "Live World Cup 2026 predictor: Elo ratings, calibrated double Poisson, Monte Carlo bracket simulation, judged a posteriori with Brier scores.",
+      "description": "Prédiction en direct de la Coupe du monde 2026 : classement Elo, double Poisson calibré, simulation Monte Carlo du tableau, jugée a posteriori par score de Brier.",
       "tags": ["Monte Carlo", "Elo", "Streamlit", "CI"]
     },
     {
       "repo": "vct-data-lab",
       "title": "VCT Data Lab",
-      "description": "Competitive Valorant analytics platform: VLR data pipelines, role inference, player ranking and playoff odds simulation.",
-      "tags": ["Scraping", "Ranking", "Simulation"]
-    },
-    {
-      "repo": "vct-meta-lens",
-      "title": "VCT Meta Lens",
-      "description": "How the pro Valorant meta evolved over VCT 2025: 15 events, 349 players, 100k+ kills, modeled as a star schema for Power BI.",
-      "tags": ["Star schema", "Parquet", "Power BI"]
+      "description": "Plateforme d'analyse Valorant pro : pipelines de données VLR, inférence des rôles, classement des joueurs et simulation des qualifications.",
+      "tags": ["Scraping", "Classement", "Simulation"]
     },
     {
       "repo": "github-portfolio-auditor",
       "title": "GitHub Portfolio Auditor",
-      "description": "Deterministic auditor that scores, ranks and optimizes GitHub repositories, with actionable insights in a Streamlit dashboard.",
-      "tags": ["Scoring", "GitHub API", "Streamlit"]
+      "description": "Auditeur déterministe qui note, classe et optimise des dépôts GitHub, avec des recommandations concrètes dans un dashboard Streamlit.",
+      "tags": ["Scoring", "API GitHub", "Streamlit"]
     },
     {
       "repo": "anssi-vulnerability-intelligence",
       "title": "ANSSI Vulnerability Intelligence",
-      "description": "Offline-first pipeline for ANSSI bulletins: CVE enrichment, risk prioritization and a decision-support dashboard.",
-      "tags": ["Cybersecurity", "Risk scoring", "Streamlit"]
+      "description": "Pipeline hors ligne des bulletins de l'ANSSI : enrichissement des CVE, priorisation du risque et dashboard d'aide à la décision.",
+      "tags": ["Cybersécurité", "Score de risque", "Streamlit"]
     },
     {
       "repo": "school-bus-decision-system",
       "title": "School Bus Decision System",
-      "description": "Prioritizes electric school bus deployment across U.S. districts by combining analytics, scoring and interactive visualization.",
-      "tags": ["Decision support", "Scoring", "Dataviz"]
+      "description": "Priorise le déploiement des bus scolaires électriques entre districts américains en combinant analyse, scoring et visualisation interactive.",
+      "tags": ["Aide à la décision", "Scoring", "Dataviz"]
     }
   ]
 }

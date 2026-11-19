@@ -91,11 +91,11 @@ def render_languages(totals: dict[str, int], theme: Theme, max_langs: int) -> st
     top = ranked[:max_langs]
     rest = sum(v for _, v in ranked[max_langs:])
     if rest:
-        top.append(("Other", rest))
+        top.append(("Autres", rest))
 
     b: list[str] = [
         f'<rect x="0.5" y="0.5" width="{LANGS_W - 1}" height="{LANGS_H - 1}" rx="12" fill="{t.panel}" stroke="{t.grid}"/>',
-        _mono(32, 34, "LANGUAGES · SHARE OF CODE", t.muted, size=11),
+        _mono(32, 34, "LANGAGES · PART DU CODE", t.muted, size=11),
     ]
     bar_x, bar_w, gap = 32, LANGS_W - 64, 2
     usable = bar_w - gap * max(len(top) - 1, 0)
@@ -117,4 +117,4 @@ def render_languages(totals: dict[str, int], theme: Theme, max_langs: int) -> st
         )
     height = LANGS_H if len(top) > per_row else LANGS_H - 22
     body = [line.replace(f'height="{LANGS_H - 1}"', f'height="{height - 1}"') for line in b]
-    return _svg(LANGS_W, height, "Most used languages by share of code", body, t)
+    return _svg(LANGS_W, height, "Langages les plus utilisés, en part de code", body, t)
