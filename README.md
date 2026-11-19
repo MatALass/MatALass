@@ -2,6 +2,8 @@
   Les images sous raw.githubusercontent.com/.../output/ sont générées chaque nuit
   par .github/workflows/profile-assets.yml à partir de profile.config.json.
   Modifier la config, pas les SVG.
+  Le paramètre ?v= force GitHub à recharger les images (son proxy les garde en cache) :
+  l'incrémenter quand un changement ne s'affiche pas.
   Chaque image est volontairement entourée d'un lien : sinon GitHub la rend
   cliquable et ouvre le proxy d'image brut.
 -->
@@ -9,8 +11,8 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/mathieu-alassoeur/">
     <picture>
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatALass/MatALass/output/header-light.svg" />
-      <img width="100%" alt="Mathieu Alassoeur, Data Analyst alternant chez Alpine Racing (PMO), dernière année à l'EFREI Paris, en recherche d'un CDI pour septembre 2027. Profil dessiné comme un modèle en étoile Power BI." src="https://raw.githubusercontent.com/MatALass/MatALass/output/header.svg" />
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatALass/MatALass/output/header-light.svg?v=2" />
+      <img width="100%" alt="Mathieu Alassoeur, Data Analyst alternant chez Alpine Racing (PMO), dernière année à l'EFREI Paris, en recherche d'un CDI pour septembre 2027. Profil dessiné comme un modèle en étoile Power BI." src="https://raw.githubusercontent.com/MatALass/MatALass/output/header.svg?v=2" />
     </picture>
   </a>
 </p>
@@ -84,16 +86,16 @@ Je suis en dernière année d'école d'ingénieur à l'**EFREI Paris** (majeure 
 ## Projets
 
 <p align="center">
-  <a href="https://github.com/MatALass/library-analytics-data-warehouse"><img width="49%" alt="Library Analytics : entrepôt de données en constellation et rapport Power BI de 6 pages" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/library-analytics-data-warehouse.svg" /></a>
-  <a href="https://github.com/MatALass/wc-tracker"><img width="49%" alt="WC Tracker : prédiction en direct de la Coupe du monde 2026 avec Elo, double Poisson et simulation Monte Carlo" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/wc-tracker.svg" /></a>
+  <a href="https://github.com/MatALass/library-analytics-data-warehouse"><img width="49%" alt="Library Analytics : entrepôt de données en constellation et rapport Power BI de 6 pages" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/library-analytics-data-warehouse.svg?v=2" /></a>
+  <a href="https://github.com/MatALass/wc-tracker"><img width="49%" alt="WC Tracker : prédiction en direct de la Coupe du monde 2026 avec Elo, double Poisson et simulation Monte Carlo" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/wc-tracker.svg?v=2" /></a>
 </p>
 <p align="center">
-  <a href="https://github.com/MatALass/vct-data-lab"><img width="49%" alt="VCT Data Lab : plateforme d'analyse Valorant pro" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/vct-data-lab.svg" /></a>
-  <a href="https://github.com/MatALass/github-portfolio-auditor"><img width="49%" alt="GitHub Portfolio Auditor : note et classe des dépôts GitHub" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/github-portfolio-auditor.svg" /></a>
+  <a href="https://github.com/MatALass/vct-data-lab"><img width="49%" alt="VCT Data Lab : plateforme d'analyse Valorant pro" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/vct-data-lab.svg?v=2" /></a>
+  <a href="https://github.com/MatALass/github-portfolio-auditor"><img width="49%" alt="GitHub Portfolio Auditor : note et classe des dépôts GitHub" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/github-portfolio-auditor.svg?v=2" /></a>
 </p>
 <p align="center">
-  <a href="https://github.com/MatALass/anssi-vulnerability-intelligence"><img width="49%" alt="ANSSI Vulnerability Intelligence : enrichissement des CVE et priorisation du risque" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/anssi-vulnerability-intelligence.svg" /></a>
-  <a href="https://github.com/MatALass/school-bus-decision-system"><img width="49%" alt="School Bus Decision System : priorisation du déploiement des bus scolaires électriques" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/school-bus-decision-system.svg" /></a>
+  <a href="https://github.com/MatALass/anssi-vulnerability-intelligence"><img width="49%" alt="ANSSI Vulnerability Intelligence : enrichissement des CVE et priorisation du risque" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/anssi-vulnerability-intelligence.svg?v=2" /></a>
+  <a href="https://github.com/MatALass/school-bus-decision-system"><img width="49%" alt="School Bus Decision System : priorisation du déploiement des bus scolaires électriques" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/school-bus-decision-system.svg?v=2" /></a>
 </p>
 
 ### Esport et analyse sportive
@@ -129,12 +131,12 @@ Je suis en dernière année d'école d'ingénieur à l'**EFREI Paris** (majeure 
 ## Langages
 
 <p align="center">
-  <a href="https://github.com/MatALass?tab=repositories"><img width="100%" alt="Langages les plus utilisés, en part de code" src="https://raw.githubusercontent.com/MatALass/MatALass/output/languages.svg" /></a>
+  <a href="https://github.com/MatALass?tab=repositories"><img width="100%" alt="Langages les plus utilisés, en part de code" src="https://raw.githubusercontent.com/MatALass/MatALass/output/languages.svg?v=2" /></a>
 </p>
 
 ## En dehors du code
 
-- Joueur Valorant (Immortal, souvent IGL) et suiveur du circuit VCT, d'où le scraping de VLR.gg et les simulations de playoffs
+- Suiveur du circuit VCT de Valorant, d'où le scraping de VLR.gg et les simulations de playoffs
 - Passionné de données foot : classements Elo, tournois en Monte Carlo et une saine méfiance envers les cotes des bookmakers
 - Je travaille en F1 et je ne m'en remets toujours pas
 
