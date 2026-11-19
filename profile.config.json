@@ -46,7 +46,7 @@
       { "name": "dim_experience", "rows": ["Alpine Racing · Data Analyst alternant", "ISM Dortmund · Data Analyst stagiaire", "Trophées NSI · jury national"] },
       { "name": "dim_education", "rows": ["EFREI Paris · Ingénieur BI & Analytics", "Concordia Montréal · semestre d'échange", "Azure DP-900 · certification", "Délégué étudiant · 3 années de suite"] },
       { "name": "dim_stack", "rows": ["Python · SQL · Power BI", "pandas · Streamlit", "scikit-learn · Git · CI"] },
-      { "name": "dim_projects", "rows": ["Library Analytics · Power BI", "WC Tracker · Monte Carlo", "VCT Data Lab · pipeline et ranking"] },
+      { "name": "dim_projects", "rows": ["Library Analytics · Power BI", "pbip-generator · Python et Power BI", "WC Tracker · Monte Carlo"] },
       { "name": "dim_interests", "rows": ["Jeux vidéo · Valorant, Hearthstone", "Sport · F1, football, badminton", "Objectif · premier triathlon en 2027"] }
     ]
   },
