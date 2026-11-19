@@ -11,8 +11,8 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/mathieu-alassoeur/">
     <picture>
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatALass/MatALass/output/header-light.svg?v=3" />
-      <img width="100%" alt="Mathieu Alassoeur, Data Analyst alternant chez Alpine Racing (PMO), dernière année à l'EFREI Paris, en recherche d'un CDI pour septembre 2027. Profil dessiné comme un modèle en étoile Power BI." src="https://raw.githubusercontent.com/MatALass/MatALass/output/header.svg?v=3" />
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatALass/MatALass/output/header-light.svg?v=4" />
+      <img width="100%" alt="Mathieu Alassoeur, Data Analyst alternant chez Alpine Racing (PMO), dernière année à l'EFREI Paris, en recherche d'un CDI pour septembre 2027. Profil dessiné comme un modèle en étoile Power BI." src="https://raw.githubusercontent.com/MatALass/MatALass/output/header.svg?v=4" />
     </picture>
   </a>
 </p>
@@ -32,7 +32,6 @@
 
 Je suis en dernière année d'école d'ingénieur à l'**EFREI Paris** (majeure Business Intelligence & Analytics) et **Data Analyst en alternance dans l'équipe PMO d'Alpine Racing**. Je conçois l'outil interne de pilotage de la charge projet de l'équipe PMO : environ 80 projets suivis, une dizaine d'utilisateurs, pipeline Python, modèle en étoile et dashboards Power BI. L'essentiel de mon travail, c'est la partie invisible qui rend un dashboard fiable : nettoyer des sources incohérentes, définir des indicateurs sur lesquels tout le monde s'accorde, et livrer des rapports réellement utilisés, dans les délais.
 
-- **Aujourd'hui :** Data Analyst alternant, Alpine Racing, Viry-Châtillon
 - **Avant :** Data Analyst stagiaire à l'International School of Management (Dortmund) : pipelines de qualité de données, synchronisation Targroup vers HubSpot par API, indicateurs académiques
 - **À côté :** une suite d'analyse esport sur Valorant, un prédicteur de la Coupe du monde en direct, et un observatoire des audiences Twitch francophones (1,8 % des chaînes captent 80 % de l'audience en prime time)
 - **Ensuite :** je cherche un **CDI de Data Analyst** en France à partir de **septembre 2027**. [Me contacter](mailto:mathieualassoeur@gmail.com)
@@ -60,25 +59,25 @@ Je suis en dernière année d'école d'ingénieur à l'**EFREI Paris** (majeure 
 ## Projets
 
 <p align="center">
-  <a href="https://github.com/MatALass/library-analytics-data-warehouse"><img width="49%" alt="Library Analytics : entrepôt de données en constellation et rapport Power BI de 6 pages" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/library-analytics-data-warehouse.svg?v=3" /></a>
-  <a href="https://github.com/MatALass/pbip-generator"><img width="49%" alt="pbip-generator : génère un projet Power BI complet à partir de CSV ou d'Excel" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/pbip-generator.svg?v=3" /></a>
+  <a href="https://github.com/MatALass/library-analytics-data-warehouse"><img width="49%" alt="Library Analytics : entrepôt de données en constellation et rapport Power BI de 6 pages" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/library-analytics-data-warehouse.svg?v=4" /></a>
+  <a href="https://github.com/MatALass/pbip-generator"><img width="49%" alt="pbip-generator : génère un projet Power BI complet à partir de CSV ou d'Excel" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/pbip-generator.svg?v=4" /></a>
 </p>
 <p align="center">
-  <a href="https://github.com/MatALass/wc-tracker"><img width="49%" alt="WC Tracker : prédiction en direct de la Coupe du monde 2026 avec Elo, double Poisson et simulation Monte Carlo" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/wc-tracker.svg?v=3" /></a>
-  <a href="https://github.com/MatALass/school-bus-decision-system"><img width="49%" alt="School Bus Decision System : priorisation du déploiement des bus scolaires électriques" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/school-bus-decision-system.svg?v=3" /></a>
+  <a href="https://github.com/MatALass/wc-tracker"><img width="49%" alt="WC Tracker : prédiction en direct de la Coupe du monde 2026 avec Elo, double Poisson et simulation Monte Carlo" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/wc-tracker.svg?v=4" /></a>
+  <a href="https://github.com/MatALass/school-bus-decision-system"><img width="49%" alt="School Bus Decision System : priorisation du déploiement des bus scolaires électriques" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/school-bus-decision-system.svg?v=4" /></a>
 </p>
 <p align="center">
-  <a href="https://github.com/MatALass/vct-data-lab"><img width="49%" alt="VCT Data Lab : plateforme d'analyse Valorant pro" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/vct-data-lab.svg?v=3" /></a>
-  <a href="https://github.com/MatALass/anssi-vulnerability-intelligence"><img width="49%" alt="ANSSI Vulnerability Intelligence : enrichissement des CVE et priorisation du risque" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/anssi-vulnerability-intelligence.svg?v=3" /></a>
+  <a href="https://github.com/MatALass/vct-data-lab"><img width="49%" alt="VCT Data Lab : plateforme d'analyse Valorant pro" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/vct-data-lab.svg?v=4" /></a>
+  <a href="https://github.com/MatALass/anssi-vulnerability-intelligence"><img width="49%" alt="ANSSI Vulnerability Intelligence : enrichissement des CVE et priorisation du risque" src="https://raw.githubusercontent.com/MatALass/MatALass/output/cards/anssi-vulnerability-intelligence.svg?v=4" /></a>
 </p>
 
 ### Autres projets
 
 | Projet | Ce qu'il fait | Stack |
 | --- | --- | --- |
-| **Twitch FR Observatory** <sub>(code privé, conditions de l'API Twitch)</sub> | Relevés planifiés des audiences Twitch francophones et analyse de leur concentration | Python · OAuth2 · GitHub Actions · Power BI |
 | [**Cultural Consumption Analytics**](https://github.com/MatALass/digital-cultural-consumption-analytics) · [démo](https://matalass-digital-cultural-consumption-analytics.streamlit.app/) | Facteurs sociodémographiques et numériques de la consommation culturelle en France, à partir de données ouvertes | Python · Streamlit |
 | [**VCT Meta Lens**](https://github.com/MatALass/vct-meta-lens) <sub>(dashboard Power BI en cours)</sub> | Évolution du méta Valorant pro sur la saison VCT 2025 : 15 tournois, 349 joueurs, plus de 100 000 kills, modélisés en étoile | Python · Parquet · Power BI |
+| **Twitch FR Observatory** <sub>(code privé, conditions de l'API Twitch)</sub> | Relevés planifiés des audiences Twitch francophones et analyse de leur concentration | Python · OAuth2 · GitHub Actions · Power BI |
 | [**GitHub Portfolio Auditor**](https://github.com/MatALass/github-portfolio-auditor) | Note, classe et optimise des dépôts GitHub, avec des recommandations concrètes dans un dashboard | Python · Streamlit |
 | [**FootPredict PL**](https://github.com/MatALass/footpredict-pl) | Prédiction des victoires à domicile en Premier League avec Elo, forme récente et backtest walk-forward | scikit-learn · Streamlit |
 | [**BinWatch**](https://github.com/MatALass/binwatch) · [démo](https://binwatch.vercel.app) | Suivi intelligent des poubelles : classification de l'état par image et historique prêt pour l'analyse | Flask · Express · PostgreSQL |
