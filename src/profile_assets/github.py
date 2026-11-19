@@ -113,6 +113,7 @@ def fetch_repo_cards(gh: GitHub, user: str, featured: tuple[FeaturedRepo, ...]) 
                 tags=item.tags,
                 language=meta.get("language"),
                 stars=int(meta.get("stargazers_count", 0)),
+                tech=item.tech,
             )
         )
     return cards

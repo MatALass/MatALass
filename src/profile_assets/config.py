@@ -139,6 +139,7 @@ def load_config(path: Path) -> Config:
                 title=str(_require(item, "title", where)),
                 description=str(_require(item, "description", where)),
                 tags=tuple(str(t) for t in item.get("tags", [])),
+                tech=str(_require(item, "tech", where)),
             )
         )
 

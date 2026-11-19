@@ -19,7 +19,7 @@ from .render import render_languages, render_repo_card
 def demo_data(config: Config) -> tuple[list[RepoCard], dict[str, int], Activity]:
     """Deterministic fake data for offline previews and tests."""
     cards = [
-        RepoCard(repo=f.repo, title=f.title, description=f.description, tags=f.tags, language="Python", stars=i % 3)
+        RepoCard(repo=f.repo, title=f.title, description=f.description, tags=f.tags, language="Python", stars=i % 3, tech=f.tech)
         for i, f in enumerate(config.featured)
     ]
     langs = {"Python": 620_000, "JavaScript": 140_000, "Java": 60_000, "Vue": 30_000, "PLpgSQL": 9_000, "Shell": 4_000}
