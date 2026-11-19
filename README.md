@@ -7,7 +7,12 @@
 -->
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/mathieu-alassoeur/"><img width="100%" alt="Mathieu Alassoeur, Data Analyst at Alpine Racing PMO, final-year engineering student at EFREI Paris, available September 2027" src="https://raw.githubusercontent.com/MatALass/MatALass/output/header.svg" /></a>
+  <a href="https://www.linkedin.com/in/mathieu-alassoeur/">
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatALass/MatALass/output/header-light.svg" />
+      <img width="100%" alt="Mathieu Alassoeur, Data Analyst at Alpine Racing PMO, final-year engineering student at EFREI Paris, available September 2027, profile drawn as a Power BI star schema" src="https://raw.githubusercontent.com/MatALass/MatALass/output/header.svg" />
+    </picture>
+  </a>
 </p>
 
 <p align="center">

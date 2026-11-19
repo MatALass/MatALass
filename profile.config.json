@@ -34,6 +34,23 @@
     "sun": ["#FFD60A", "#FF2E88", "#FF3B3B"]
   },
 
+  "header_style": "model",
+
+  "model": {
+    "name": "Mathieu Alassoeur",
+    "subtitle": "Data Analyst alternant chez Alpine Racing (PMO) · dernière année à l'EFREI Paris",
+    "badge": "CDI Data Analyst · septembre 2027 · France",
+    "caption": "profile.pbix · vue Modèle",
+    "fact": "fact_profile",
+    "dimensions": [
+      { "name": "dim_experience", "rows": ["Alpine Racing · Data Analyst alternant", "ISM Dortmund · Data Analyst stagiaire", "Trophées NSI · jury national"] },
+      { "name": "dim_education", "rows": ["EFREI Paris · Ingénieur BI & Analytics", "Concordia Montréal · semestre d'échange", "Azure DP-900 · certification", "Délégué étudiant · 3 années de suite"] },
+      { "name": "dim_stack", "rows": ["Python · SQL · Power BI", "pandas · Streamlit", "scikit-learn · Git · CI"] },
+      { "name": "dim_projects", "rows": ["Library Analytics · Power BI", "WC Tracker · Monte Carlo", "VCT Data Lab · pipeline et ranking"] },
+      { "name": "dim_interests", "rows": ["Jeux vidéo · Valorant, Hearthstone", "Sport · F1, football, badminton", "Objectif · premier triathlon en 2027"] }
+    ]
+  },
+
   "max_languages": 8,
   "exclude_languages": ["HTML", "CSS", "Jupyter Notebook"],
 

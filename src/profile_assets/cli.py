@@ -12,6 +12,7 @@ from .config import ConfigError, load_config
 from .github import GitHub, GitHubError, fetch_activity, fetch_languages, fetch_repo_cards
 from .models import Activity, Config, RepoCard
 from .header import render_header
+from .model_header import render_model_header
 from .render import render_languages, render_repo_card
 
 
@@ -60,7 +61,12 @@ def main(argv: list[str] | None = None) -> int:
             print(f"GitHub API error: {exc}", file=sys.stderr)
             return 1
 
-    write(args.out / "header.svg", render_header(config.header, activity, config.theme))
+    if config.header_style == "model" and config.model is not None:
+        # dark and light versions, picked by the README with <picture> and prefers-color-scheme
+        write(args.out / "header.svg", render_model_header(config.model, "dark"))
+        write(args.out / "header-light.svg", render_model_header(config.model, "light"))
+    else:
+        write(args.out / "header.svg", render_header(config.header, activity, config.theme))
     for position, card in enumerate(cards, start=1):
         write(args.out / "cards" / f"{card.repo}.svg", render_repo_card(card, position, config.theme))
     write(args.out / "languages.svg", render_languages(langs, config.theme, config.max_languages))
