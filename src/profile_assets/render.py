@@ -61,7 +61,8 @@ def render_repo_card(card: RepoCard, position: int, theme: Theme) -> str:
         _mono(39, 30.5, f"P{position:02d}", t.bg, size=10.5, anchor="middle", spacing=0.5, weight=800),
         _mono(64, 30.5, card.repo, t.muted, size=10.5, spacing=0.5),
     ]
-    meta = f"{(card.language or '').upper()}  ★ {card.stars}".strip()
+    # Main technology chosen in the config: more telling than the GitHub language and star count.
+    meta = (card.tech or card.language or "").upper()
     b.append(_mono(CARD_W - 18, 30.5, meta, t.muted, size=10.5, anchor="end", spacing=1))
     b.append(
         f'<text x="22" y="60" font-family="{SANS}" font-size="17" font-weight="800" fill="{t.text}">{escape(card.title)}</text>'

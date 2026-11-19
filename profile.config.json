@@ -58,38 +58,44 @@
     {
       "repo": "library-analytics-data-warehouse",
       "title": "Library Analytics",
+      "tech": "Power BI",
       "description": "Entrepôt de données en constellation (3 faits, 5 dimensions) et rapport Power BI de 6 pages pour un réseau de bibliothèques, jusqu'à un moteur de réallocation des stocks.",
-      "tags": ["Power BI", "Modèle en étoile", "DAX"]
+      "tags": ["Modèle en étoile", "DAX", "Python"]
+    },
+    {
+      "repo": "pbip-generator",
+      "title": "pbip-generator",
+      "tech": "Python · Power BI",
+      "description": "Génère un projet Power BI complet à partir de fichiers CSV ou Excel : requêtes Power Query typées, schéma en étoile, mesures DAX et pages de rapport.",
+      "tags": ["TMDL", "Power Query", "CLI", "CI"]
     },
     {
       "repo": "wc-tracker",
       "title": "WC Tracker",
+      "tech": "Streamlit",
       "description": "Prédiction en direct de la Coupe du monde 2026 : classement Elo, double Poisson calibré, simulation Monte Carlo du tableau, jugée a posteriori par score de Brier.",
-      "tags": ["Monte Carlo", "Elo", "Streamlit", "CI"]
-    },
-    {
-      "repo": "vct-data-lab",
-      "title": "VCT Data Lab",
-      "description": "Plateforme d'analyse Valorant pro : pipelines de données VLR, inférence des rôles, classement des joueurs et simulation des qualifications.",
-      "tags": ["Scraping", "Classement", "Simulation"]
-    },
-    {
-      "repo": "github-portfolio-auditor",
-      "title": "GitHub Portfolio Auditor",
-      "description": "Auditeur déterministe qui note, classe et optimise des dépôts GitHub, avec des recommandations concrètes dans un dashboard Streamlit.",
-      "tags": ["Scoring", "API GitHub", "Streamlit"]
-    },
-    {
-      "repo": "anssi-vulnerability-intelligence",
-      "title": "ANSSI Vulnerability Intelligence",
-      "description": "Pipeline hors ligne des bulletins de l'ANSSI : enrichissement des CVE, priorisation du risque et dashboard d'aide à la décision.",
-      "tags": ["Cybersécurité", "Score de risque", "Streamlit"]
+      "tags": ["Monte Carlo", "Elo", "CI"]
     },
     {
       "repo": "school-bus-decision-system",
       "title": "School Bus Decision System",
+      "tech": "Streamlit",
       "description": "Priorise le déploiement des bus scolaires électriques entre districts américains en combinant analyse, scoring et visualisation interactive.",
       "tags": ["Aide à la décision", "Scoring", "Dataviz"]
+    },
+    {
+      "repo": "vct-data-lab",
+      "title": "VCT Data Lab",
+      "tech": "Python · FastAPI",
+      "description": "Plateforme d'analyse Valorant pro : pipelines de données VLR, inférence des rôles, classement des joueurs et simulation des qualifications.",
+      "tags": ["Scraping", "Classement", "Simulation"]
+    },
+    {
+      "repo": "anssi-vulnerability-intelligence",
+      "title": "ANSSI Vulnerability Intelligence",
+      "tech": "Streamlit",
+      "description": "Pipeline hors ligne des bulletins de l'ANSSI : enrichissement des CVE, priorisation du risque et dashboard d'aide à la décision.",
+      "tags": ["Cybersécurité", "Score de risque"]
     }
   ]
 }

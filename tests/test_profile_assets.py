@@ -81,6 +81,7 @@ def test_repo_config_loads(config):
         (lambda d: d["header"].update(kill_feed=[{"tool": "a", "target": "b"}] * 4), "at most 3"),
         (lambda d: d["header"].update(stack=[]), "1 to 6"),
         (lambda d: d.update(header_style="neon"), "header_style"),
+        (lambda d: d["featured"][0].pop("tech"), "missing 'tech'"),
         (lambda d: d["model"]["dimensions"].pop(), "exactly 5"),
         (lambda d: d["model"]["dimensions"][0].update(name="experience"), "start with 'dim_'"),
         (lambda d: d["model"]["dimensions"][0].update(rows=["a"] * 5), "1 to 4 lines"),
@@ -178,3 +179,10 @@ def test_cli_writes_light_header_for_model_style(tmp_path):
     assert main(["--config", str(CONFIG), "--out", str(tmp_path), "--demo"]) == 0
     ET.fromstring((tmp_path / "header.svg").read_text(encoding="utf-8"))
     ET.fromstring((tmp_path / "header-light.svg").read_text(encoding="utf-8"))
+
+
+def test_card_shows_main_tech_instead_of_stars(config):
+    card = RepoCard(repo="r", title="T", description="d", tags=(), language="Python", stars=3, tech="Power BI")
+    svg = render_repo_card(card, 1, config.theme)
+    assert "POWER BI" in svg
+    assert "★" not in svg

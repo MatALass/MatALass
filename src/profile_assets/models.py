@@ -67,6 +67,7 @@ class FeaturedRepo:
     title: str
     description: str
     tags: tuple[str, ...]
+    tech: str = ""  # main technology shown at the top right of the card, e.g. "Power BI"
 
 
 @dataclass(frozen=True)
@@ -89,6 +90,7 @@ class RepoCard:
     tags: tuple[str, ...]
     language: str | None
     stars: int
+    tech: str = ""
 
 
 @dataclass(frozen=True)
