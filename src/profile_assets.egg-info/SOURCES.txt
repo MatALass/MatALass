@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/profile_assets/__init__.py
+src/profile_assets/__main__.py
+src/profile_assets/cli.py
+src/profile_assets/config.py
+src/profile_assets/github.py
+src/profile_assets/header.py
+src/profile_assets/models.py
+src/profile_assets/render.py
+src/profile_assets.egg-info/PKG-INFO
+src/profile_assets.egg-info/SOURCES.txt
+src/profile_assets.egg-info/dependency_links.txt
+src/profile_assets.egg-info/requires.txt
+src/profile_assets.egg-info/top_level.txt
+tests/test_profile_assets.py

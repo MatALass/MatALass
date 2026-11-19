@@ -10,6 +10,7 @@ from profile_assets.cli import demo_data, main
 from profile_assets.config import ConfigError, load_config
 from profile_assets.github import compute_streaks, weekly_totals
 from profile_assets.header import days_until, render_header
+from profile_assets.header_styles import STYLES
 from profile_assets.models import Activity, RepoCard
 from profile_assets.render import render_languages, render_repo_card
 
@@ -78,6 +79,7 @@ def test_repo_config_loads(config):
         (lambda d: d["header"].update(available_from="next year"), "YYYY-MM-DD"),
         (lambda d: d["header"].update(kill_feed=[{"tool": "a", "target": "b"}] * 4), "at most 3"),
         (lambda d: d["header"].update(stack=[]), "1 to 6"),
+        (lambda d: d["header"].update(style="neon"), "header.style"),
     ],
 )
 def test_invalid_config_is_rejected(tmp_path, mutate, message):
@@ -141,3 +143,34 @@ def test_cli_demo_writes_all_files(tmp_path, config):
     assert (tmp_path / "languages.svg").is_file()
     for repo in config.featured:
         assert (tmp_path / "cards" / f"{repo.repo}.svg").is_file()
+
+
+# ------------------------------------------------------------------ alternative header styles
+@pytest.mark.parametrize("style", sorted(STYLES))
+def test_alternative_headers_are_valid_and_escape_text(config, style):
+    _, _, activity = demo_data(config)
+    header = replace(config.header, name="A & <B>")
+    svg = STYLES[style](header, activity, TODAY)
+    ET.fromstring(svg)
+    assert "A &amp; &lt;B&gt;" in svg
+    assert ">339<" in svg
+
+
+@pytest.mark.parametrize("style", sorted(STYLES))
+def test_alternative_headers_survive_zero_activity_and_availability(config, style):
+    flat = Activity(weekly=(0,) * 52, contributions=0, current_streak=0, longest_streak=0, public_repos=0)
+    svg = STYLES[style](config.header, flat, date(2027, 9, 1))
+    ET.fromstring(svg)
+    assert ">NOW<" in svg
+
+
+def test_style_defaults_to_racing(tmp_path):
+    data = _raw_config()
+    data["header"].pop("style", None)
+    assert load_config(_write_config(tmp_path, data)).header.style == "racing"
+
+
+def test_cli_all_styles_writes_one_header_per_style(tmp_path):
+    assert main(["--config", str(CONFIG), "--out", str(tmp_path), "--demo", "--all-styles"]) == 0
+    for style in ("racing", *STYLES):
+        ET.fromstring((tmp_path / f"header-{style}.svg").read_text(encoding="utf-8"))

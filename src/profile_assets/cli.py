@@ -6,12 +6,14 @@ import argparse
 import math
 import os
 import sys
+from datetime import date
 from pathlib import Path
 
-from .config import ConfigError, load_config
+from .config import HEADER_STYLES, ConfigError, load_config
 from .github import GitHub, GitHubError, fetch_activity, fetch_languages, fetch_repo_cards
 from .models import Activity, Config, RepoCard
 from .header import render_header
+from .header_styles import STYLES
 from .render import render_languages, render_repo_card
 
 
@@ -26,6 +28,14 @@ def demo_data(config: Config) -> tuple[list[RepoCard], dict[str, int], Activity]
     return cards, langs, Activity(weekly=weekly, contributions=sum(weekly), current_streak=5, longest_streak=19, public_repos=42)
 
 
+def render_styled_header(header, activity, theme, style: str | None = None) -> str:
+    """Header in the configured style (or ``style``); "racing" is the original scene."""
+    style = style or header.style
+    if style == "racing":
+        return render_header(header, activity, theme)
+    return STYLES[style](header, activity, date.today())
+
+
 def write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
@@ -36,6 +46,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--config", type=Path, default=Path("profile.config.json"))
     parser.add_argument("--out", type=Path, default=Path("dist"))
     parser.add_argument("--demo", action="store_true", help="fake data, no network (local preview)")
+    parser.add_argument("--all-styles", action="store_true", help="also write header-<style>.svg for every style, to compare")
     args = parser.parse_args(argv)
 
     try:
@@ -60,7 +71,10 @@ def main(argv: list[str] | None = None) -> int:
             print(f"GitHub API error: {exc}", file=sys.stderr)
             return 1
 
-    write(args.out / "header.svg", render_header(config.header, activity, config.theme))
+    write(args.out / "header.svg", render_styled_header(config.header, activity, config.theme))
+    if args.all_styles:
+        for style in HEADER_STYLES:
+            write(args.out / f"header-{style}.svg", render_styled_header(config.header, activity, config.theme, style))
     for position, card in enumerate(cards, start=1):
         write(args.out / "cards" / f"{card.repo}.svg", render_repo_card(card, position, config.theme))
     write(args.out / "languages.svg", render_languages(langs, config.theme, config.max_languages))

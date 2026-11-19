@@ -41,6 +41,7 @@ class Header:
     available_from: date
     stack: tuple[StackItem, ...]
     kill_feed: tuple[KillFeedEntry, ...]
+    style: str = "racing"  # racing | timing | dashboard | circuit
 
 
 @dataclass(frozen=True)

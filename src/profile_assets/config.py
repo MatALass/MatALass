@@ -16,6 +16,7 @@ from .models import Config, FeaturedRepo, Header, KillFeedEntry, StackItem, Them
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 MAX_STACK_SLOTS = 6
 MAX_KILL_FEED = 3
+HEADER_STYLES = ("racing", "timing", "dashboard", "circuit")
 
 
 class ConfigError(ValueError):
@@ -84,6 +85,10 @@ def _header(data: dict, theme: Theme) -> Header:
     except ValueError as exc:
         raise ConfigError(f"header.available_from must be YYYY-MM-DD, got {raw_date!r}") from exc
 
+    style = str(data.get("style", "racing"))
+    if style not in HEADER_STYLES:
+        raise ConfigError(f"header.style must be one of {list(HEADER_STYLES)}, got {style!r}")
+
     return Header(
         name=str(_require(data, "name", "header")),
         role=str(_require(data, "role", "header")),
@@ -91,6 +96,7 @@ def _header(data: dict, theme: Theme) -> Header:
         available_from=available_from,
         stack=tuple(stack),
         kill_feed=tuple(feed),
+        style=style,
     )
 
 
