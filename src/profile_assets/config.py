@@ -11,11 +11,14 @@ import re
 from datetime import date
 from pathlib import Path
 
-from .models import Config, FeaturedRepo, Header, KillFeedEntry, StackItem, Theme
+from .models import Config, FeaturedRepo, Header, KillFeedEntry, ModelDimension, ModelHeader, StackItem, Theme
 
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 MAX_STACK_SLOTS = 6
 MAX_KILL_FEED = 3
+HEADER_STYLES = ("racing", "model")
+MODEL_DIMENSIONS = 5
+MODEL_ROWS = (1, 4)
 
 
 class ConfigError(ValueError):
@@ -94,6 +97,30 @@ def _header(data: dict, theme: Theme) -> Header:
     )
 
 
+def _model(data: dict) -> ModelHeader:
+    dims = []
+    raw_dims = _require(data, "dimensions", "model")
+    if not isinstance(raw_dims, list) or len(raw_dims) != MODEL_DIMENSIONS:
+        raise ConfigError(f"model.dimensions must have exactly {MODEL_DIMENSIONS} tables (left, left, right, right, bottom)")
+    for i, item in enumerate(raw_dims):
+        where = f"model.dimensions[{i}]"
+        name = str(_require(item, "name", where))
+        if not name.startswith("dim_"):
+            raise ConfigError(f"{where}.name must start with 'dim_', got {name!r}")
+        rows = _require(item, "rows", where)
+        if not isinstance(rows, list) or not MODEL_ROWS[0] <= len(rows) <= MODEL_ROWS[1]:
+            raise ConfigError(f"{where}.rows must have {MODEL_ROWS[0]} to {MODEL_ROWS[1]} lines")
+        dims.append(ModelDimension(name=name, rows=tuple(str(r) for r in rows)))
+    return ModelHeader(
+        name=str(_require(data, "name", "model")),
+        subtitle=str(_require(data, "subtitle", "model")),
+        badge=str(_require(data, "badge", "model")),
+        caption=str(data.get("caption", "profile.pbix · model view")),
+        fact=str(data.get("fact", "fact_profile")),
+        dimensions=tuple(dims),
+    )
+
+
 def load_config(path: Path) -> Config:
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -115,6 +142,13 @@ def load_config(path: Path) -> Config:
             )
         )
 
+    style = str(data.get("header_style", "racing"))
+    if style not in HEADER_STYLES:
+        raise ConfigError(f"header_style must be one of {list(HEADER_STYLES)}, got {style!r}")
+    model = _model(data["model"]) if "model" in data else None
+    if style == "model" and model is None:
+        raise ConfigError("header_style 'model' needs a 'model' block")
+
     return Config(
         user=str(_require(data, "user", "config")),
         header=header,
@@ -122,4 +156,6 @@ def load_config(path: Path) -> Config:
         featured=tuple(featured),
         max_languages=int(data.get("max_languages", 8)),
         exclude_languages=frozenset(data.get("exclude_languages", [])),
+        header_style=style,
+        model=model,
     )

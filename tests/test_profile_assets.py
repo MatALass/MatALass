@@ -2,6 +2,7 @@ import json
 import xml.etree.ElementTree as ET
 from dataclasses import replace
 from datetime import date, timedelta
+from html import escape
 from pathlib import Path
 
 import pytest
@@ -10,6 +11,7 @@ from profile_assets.cli import demo_data, main
 from profile_assets.config import ConfigError, load_config
 from profile_assets.github import compute_streaks, weekly_totals
 from profile_assets.header import days_until, render_header
+from profile_assets.model_header import render_model_header
 from profile_assets.models import Activity, RepoCard
 from profile_assets.render import render_languages, render_repo_card
 
@@ -78,6 +80,10 @@ def test_repo_config_loads(config):
         (lambda d: d["header"].update(available_from="next year"), "YYYY-MM-DD"),
         (lambda d: d["header"].update(kill_feed=[{"tool": "a", "target": "b"}] * 4), "at most 3"),
         (lambda d: d["header"].update(stack=[]), "1 to 6"),
+        (lambda d: d.update(header_style="neon"), "header_style"),
+        (lambda d: d["model"]["dimensions"].pop(), "exactly 5"),
+        (lambda d: d["model"]["dimensions"][0].update(name="experience"), "start with 'dim_'"),
+        (lambda d: d["model"]["dimensions"][0].update(rows=["a"] * 5), "1 to 4 lines"),
     ],
 )
 def test_invalid_config_is_rejected(tmp_path, mutate, message):
@@ -141,3 +147,34 @@ def test_cli_demo_writes_all_files(tmp_path, config):
     assert (tmp_path / "languages.svg").is_file()
     for repo in config.featured:
         assert (tmp_path / "cards" / f"{repo.repo}.svg").is_file()
+
+
+# ------------------------------------------------------------------ model view header
+@pytest.mark.parametrize("theme", ["dark", "light"])
+def test_model_header_is_valid_and_shows_config(config, theme):
+    svg = render_model_header(config.model, theme)
+    ET.fromstring(svg)
+    assert config.model.badge in svg
+    for dim in config.model.dimensions:
+        assert dim.name in svg
+        for row in dim.rows:
+            assert escape(row) in svg
+
+
+def test_model_header_fact_keys_follow_dimensions(config):
+    svg = render_model_header(config.model)
+    for key in ("experience_id", "education_id", "stack_id", "project_id", "interest_id"):
+        assert key in svg
+
+
+def test_model_header_escapes_user_text(config):
+    model = replace(config.model, name="A & <B>")
+    svg = render_model_header(model)
+    ET.fromstring(svg)
+    assert "A &amp; &lt;B&gt;" in svg
+
+
+def test_cli_writes_light_header_for_model_style(tmp_path):
+    assert main(["--config", str(CONFIG), "--out", str(tmp_path), "--demo"]) == 0
+    ET.fromstring((tmp_path / "header.svg").read_text(encoding="utf-8"))
+    ET.fromstring((tmp_path / "header-light.svg").read_text(encoding="utf-8"))

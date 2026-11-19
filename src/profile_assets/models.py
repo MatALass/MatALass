@@ -44,6 +44,24 @@ class Header:
 
 
 @dataclass(frozen=True)
+class ModelDimension:
+    name: str  # e.g. "dim_experience"
+    rows: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class ModelHeader:
+    """Content of the "model view" header: the profile drawn as a star schema."""
+
+    name: str
+    subtitle: str
+    badge: str
+    caption: str
+    fact: str
+    dimensions: tuple[ModelDimension, ...]
+
+
+@dataclass(frozen=True)
 class FeaturedRepo:
     repo: str
     title: str
@@ -59,6 +77,8 @@ class Config:
     featured: tuple[FeaturedRepo, ...]
     max_languages: int
     exclude_languages: frozenset[str]
+    header_style: str = "racing"  # "racing" (scene of header.py) or "model" (model_header.py)
+    model: ModelHeader | None = None
 
 
 @dataclass(frozen=True)
