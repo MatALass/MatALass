@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="WC Tracker: Prédiction en direct de la Coupe du monde 2026 : classement Elo, double Poisson calibré, simulation Monte Carlo du tableau, jugée a posteriori par score de Brier.">
+  <title>WC Tracker: Prédiction en direct de la Coupe du monde 2026 : classement Elo, double Poisson calibré, simulation Monte Carlo du tableau, jugée a posteriori par score de Brier.</title>
+  <rect width="440" height="170" rx="12" fill="#0D1117"/>
+  <rect x="0.5" y="0.5" width="439" height="169" rx="12" fill="#161B22" stroke="#58A6FF" stroke-opacity="0.55"/>
+  <rect x="0" y="16" width="5" height="138" rx="2.5" fill="#58A6FF"/>
+  <rect x="22" y="18" width="34" height="17" rx="3" fill="#58A6FF"/>
+  <text x="39.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="800" letter-spacing="0.5" text-anchor="middle" fill="#0D1117">P03</text>
+  <text x="64.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="0.5" text-anchor="start" fill="#8B949E">wc-tracker</text>
+  <text x="422.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="1" text-anchor="end" fill="#8B949E">STREAMLIT</text>
+  <text x="22" y="60" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="800" fill="#E6EDF3">WC Tracker</text>
+  <text x="22" y="82" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#8B949E">Prédiction en direct de la Coupe du monde 2026 : classement</text>
+  <text x="22" y="99" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#8B949E">Elo, double Poisson calibré, simulation Monte Carlo du</text>
+  <text x="22" y="116" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#8B949E">tableau, jugée a posteriori par score de Brier.</text>
+  <rect x="22" y="138" width="88" height="20" rx="3" fill="#58A6FF" fill-opacity="0.14" stroke="#58A6FF"/>
+  <text x="66.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#58A6FF">MONTE CARLO</text>
+  <rect x="116" y="138" width="35" height="20" rx="3" fill="#58A6FF" fill-opacity="0.14" stroke="#58A6FF"/>
+  <text x="133.5" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#58A6FF">ELO</text>
+  <rect x="157" y="138" width="29" height="20" rx="3" fill="#58A6FF" fill-opacity="0.14" stroke="#58A6FF"/>
+  <text x="171.5" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#58A6FF">CI</text>
+</svg>
