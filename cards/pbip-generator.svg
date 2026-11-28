@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="170" viewBox="0 0 440 170" role="img" aria-label="pbip-generator: Génère un projet Power BI complet à partir de fichiers CSV ou Excel : requêtes Power Query typées, schéma en étoile, mesures DAX et pages de rapport.">
+  <title>pbip-generator: Génère un projet Power BI complet à partir de fichiers CSV ou Excel : requêtes Power Query typées, schéma en étoile, mesures DAX et pages de rapport.</title>
+  <rect width="440" height="170" rx="12" fill="#0D1117"/>
+  <rect x="0.5" y="0.5" width="439" height="169" rx="12" fill="#161B22" stroke="#F2C811" stroke-opacity="0.55"/>
+  <rect x="0" y="16" width="5" height="138" rx="2.5" fill="#F2C811"/>
+  <rect x="22" y="18" width="34" height="17" rx="3" fill="#F2C811"/>
+  <text x="39.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="800" letter-spacing="0.5" text-anchor="middle" fill="#0D1117">P02</text>
+  <text x="64.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="0.5" text-anchor="start" fill="#8B949E">pbip-generator</text>
+  <text x="422.0" y="30.5" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" font-weight="400" letter-spacing="1" text-anchor="end" fill="#8B949E">PYTHON · POWER BI</text>
+  <text x="22" y="60" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="800" fill="#E6EDF3">pbip-generator</text>
+  <text x="22" y="82" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#8B949E">Génère un projet Power BI complet à partir de fichiers CSV ou</text>
+  <text x="22" y="99" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#8B949E">Excel : requêtes Power Query typées, schéma en étoile, mesures</text>
+  <text x="22" y="116" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#8B949E">DAX et pages de rapport.</text>
+  <rect x="22" y="138" width="42" height="20" rx="3" fill="#F2C811" fill-opacity="0.14" stroke="#F2C811"/>
+  <text x="43.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#F2C811">TMDL</text>
+  <rect x="70" y="138" width="88" height="20" rx="3" fill="#F2C811" fill-opacity="0.14" stroke="#F2C811"/>
+  <text x="114.0" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#F2C811">POWER QUERY</text>
+  <rect x="164" y="138" width="35" height="20" rx="3" fill="#F2C811" fill-opacity="0.14" stroke="#F2C811"/>
+  <text x="181.5" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#F2C811">CLI</text>
+  <rect x="205" y="138" width="29" height="20" rx="3" fill="#F2C811" fill-opacity="0.14" stroke="#F2C811"/>
+  <text x="219.5" y="152.0" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#F2C811">CI</text>
+</svg>
